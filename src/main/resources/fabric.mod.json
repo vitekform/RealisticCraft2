@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "rc2",
+  "version": "${version}",
+  "name": "rc2",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/rc2/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "cz.vitekform.rc2.client.Rc2Client"
+    ],
+    "main": [
+      "cz.vitekform.rc2.Rc2"
+    ]
+  },
+  "mixins": [
+    "rc2.mixins.json",
+    {
+      "config": "rc2.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
