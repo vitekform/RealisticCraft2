@@ -4,6 +4,7 @@ import cz.vitekform.rc2.ModItems;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -39,6 +40,7 @@ public class logChoppingFix {
                     BlockState newBState = Registries.BLOCK.get(Identifier.of(strippedBlockName)).getDefaultState();
                     // Set the block to stripped log
                     world.setBlockState(blockPos, newBState);
+                    player.getStackInHand(player.getActiveHand()).damage(1, player, LivingEntity.getSlotForHand(player.getActiveHand()));
                     // Drop bark
                     world.spawnEntity(new ItemEntity(world, blockPos.getX(), blockPos.getY() + 0.5, blockPos.getZ(), ModItems.WOOD_BARK.getDefaultStack()));
                     return false;
@@ -56,6 +58,7 @@ public class logChoppingFix {
                     String planksBlockName = "minecraft:" + ps + "_planks";
                     Logger.getGlobal().info(planksBlockName);
                     BlockState newBState = Registries.BLOCK.get(Identifier.of(planksBlockName)).getDefaultState();
+                    player.getStackInHand(player.getActiveHand()).damage(1, player, LivingEntity.getSlotForHand(player.getActiveHand()));
                     // Set the block to planks
                     world.setBlockState(blockPos, newBState);
                     return false;

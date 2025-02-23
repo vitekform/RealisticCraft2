@@ -1,3 +1,6 @@
 {
-  "item.rc2.wood_bark": "Wood Bark"
+  "item.rc2.wood_bark": "Wood Bark",
+  "item.rc2.rock": "Rock",
+  "item.rc2.sharp_rock": "Sharp Rock",
+  "block.rc2.crafting_pad": "Crafting Pad"
 }

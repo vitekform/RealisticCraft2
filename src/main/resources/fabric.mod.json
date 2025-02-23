@@ -4,7 +4,7 @@
   "version": "${version}",
   "name": "rc2",
   "description": "",
-  "authors": [],
+  "authors": ["ganamaga"],
   "contact": {},
   "license": "All-Rights-Reserved",
   "icon": "assets/rc2/icon.png",
@@ -15,6 +15,9 @@
     ],
     "main": [
       "cz.vitekform.rc2.Rc2"
+    ],
+    "fabric-datagen": [
+      "cz.vitekform.rc2.client.datagen.RC2ReferenceDataGenerator"
     ]
   },
   "mixins": [
