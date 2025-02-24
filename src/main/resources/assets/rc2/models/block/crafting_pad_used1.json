@@ -1,0 +1,23 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "rc2:block/stone_cracked1",
+		"1": "rc2:block/crafting_pad_top1",
+		"particle": "rc2:block/stone"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 3, 16],
+			"faces": {
+				"north": {"uv": [8, 0, 16, 1.5], "texture": "#0"},
+				"east": {"uv": [8, 1.5, 16, 3], "texture": "#0"},
+				"south": {"uv": [8, 3, 16, 4.5], "texture": "#0"},
+				"west": {"uv": [8, 4.5, 16, 6], "texture": "#0"},
+				"up": {"uv": [14, 13.5, 1, 0.5], "texture": "#1"},
+				"down": {"uv": [8, 8, 0, 16], "texture": "#0"}
+			}
+		}
+	]
+}

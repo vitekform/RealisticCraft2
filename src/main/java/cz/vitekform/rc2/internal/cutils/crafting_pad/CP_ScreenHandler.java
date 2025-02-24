@@ -12,6 +12,7 @@ import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.packet.s2c.play.CloseScreenS2CPacket;
 import net.minecraft.recipe.CraftingRecipe;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.recipe.RecipeManager;
@@ -20,6 +21,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.screen.*;
 import net.minecraft.screen.slot.CraftingResultSlot;
 import net.minecraft.screen.slot.Slot;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
@@ -72,6 +74,7 @@ public class CP_ScreenHandler extends ScreenHandler {
                         ingredient.decrement(1);
                     }
                 }
+
                 if (bpos != null) {
                     BlockState state = world.getBlockState(bpos);
                     int used_times;
@@ -84,10 +87,15 @@ public class CP_ScreenHandler extends ScreenHandler {
                     used_times++;
                     if (used_times >= 5) {
                         world.setBlockState(bpos, Registries.BLOCK.get(Identifier.of("minecraft:air")).getDefaultState());
-                        world.playSound(bpos.getX(), bpos.getY(), bpos.getZ(), SoundEvents.BLOCK_STONE_BREAK, SoundCategory.BLOCKS, 2.0f, 1.0f, true);
+                        world.playSound(bpos.getX(), bpos.getY(), bpos.getZ(), SoundEvents.BLOCK_STONE_BREAK, SoundCategory.BLOCKS, 2.0f, 1.0f, false);
+                        ServerPlayerEntity playerEntity = (ServerPlayerEntity) player;
+                        CloseScreenS2CPacket packet = new CloseScreenS2CPacket(playerEntity.currentScreenHandler.syncId);
+                        playerEntity.networkHandler.sendPacket(packet);
                     }
                     else {
-                        world.setBlockState(bpos, state.with(CraftingPadBlock.UsedTimes, used_times));
+                        if (state.contains(CraftingPadBlock.UsedTimes)) {
+                            world.setBlockState(bpos, state.with(CraftingPadBlock.UsedTimes, used_times));
+                        }
                     }
                 }
                 // Update the result
@@ -122,21 +130,19 @@ public class CP_ScreenHandler extends ScreenHandler {
             ItemStack originalStack = slot.getStack();
             newStack = originalStack.copy();
 
-            if (invSlot < 9) { // Crafting grid
-                if (!this.insertItem(originalStack, 11, this.slots.size(), true)) {
+            if (invSlot == 9) { // Result slot
+                if (!this.insertItem(originalStack, 10, 46, true)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (invSlot == 9) { // Result slot
-                if (!this.insertItem(originalStack, 11, this.slots.size(), true)) {
+                slot.onTakeItem(player, originalStack);
+            } else if (invSlot < 9) { // Crafting grid slots
+                if (!this.insertItem(originalStack, 10, 46, false)) {
                     return ItemStack.EMPTY;
                 }
-                slot.onQuickTransfer(originalStack, newStack);
-            } else if (invSlot == 10) { // Pebble slot
-                if (!this.insertItem(originalStack, 11, this.slots.size(), true)) {
+            } else { // Player inventory slots (10-45)
+                if (!this.insertItem(originalStack, 0, 9, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.insertItem(originalStack, 0, 9, false)) { // Player inventory to crafting grid
-                return ItemStack.EMPTY;
             }
 
             if (originalStack.isEmpty()) {
@@ -144,6 +150,12 @@ public class CP_ScreenHandler extends ScreenHandler {
             } else {
                 slot.markDirty();
             }
+
+            if (originalStack.getCount() == newStack.getCount()) {
+                return ItemStack.EMPTY;
+            }
+
+            slot.onTakeItem(player, originalStack);
         }
         return newStack;
     }

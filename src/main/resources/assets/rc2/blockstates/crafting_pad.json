@@ -1,7 +1,22 @@
 {
   "variants": {
-    "": {
+    "used_times=0": {
       "model": "rc2:block/crafting_pad"
+    },
+    "used_times=1": {
+      "model": "rc2:block/crafting_pad_used1"
+    },
+    "used_times=2": {
+      "model": "rc2:block/crafting_pad_used2"
+    },
+    "used_times=3": {
+      "model": "rc2:block/crafting_pad_used3"
+    },
+    "used_times=4": {
+      "model": "rc2:block/crafting_pad_used4"
+    },
+    "used_times=5": {
+      "model": "rc2:block/crafting_pad_used4"
     }
   }
 }
