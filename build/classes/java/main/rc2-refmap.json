@@ -1,0 +1,26 @@
+{
+  "mappings": {
+    "cz/vitekform/rc2/internal/mixin/FurnaceBurnTimeMixin": {
+      "getCookTime": "Lnet/minecraft/class_2609;method_17029(Lnet/minecraft/class_1937;Lnet/minecraft/class_2609;)I"
+    },
+    "cz/vitekform/rc2/internal/mixin/FurnaceFuelTimeMixin": {
+      "getFuelTime": "Lnet/minecraft/class_2609;method_11200(Lnet/minecraft/class_1799;)I"
+    },
+    "cz/vitekform/rc2/internal/mixin/PlayerInventoryClickMixin": {
+      "handleSlotClick": "Lnet/minecraft/class_1703;method_45409(Lnet/minecraft/class_1657;Lnet/minecraft/class_5536;Lnet/minecraft/class_1735;Lnet/minecraft/class_1799;Lnet/minecraft/class_1799;)Z"
+    }
+  },
+  "data": {
+    "named:intermediary": {
+      "cz/vitekform/rc2/internal/mixin/FurnaceBurnTimeMixin": {
+        "getCookTime": "Lnet/minecraft/class_2609;method_17029(Lnet/minecraft/class_1937;Lnet/minecraft/class_2609;)I"
+      },
+      "cz/vitekform/rc2/internal/mixin/FurnaceFuelTimeMixin": {
+        "getFuelTime": "Lnet/minecraft/class_2609;method_11200(Lnet/minecraft/class_1799;)I"
+      },
+      "cz/vitekform/rc2/internal/mixin/PlayerInventoryClickMixin": {
+        "handleSlotClick": "Lnet/minecraft/class_1703;method_45409(Lnet/minecraft/class_1657;Lnet/minecraft/class_5536;Lnet/minecraft/class_1735;Lnet/minecraft/class_1799;Lnet/minecraft/class_1799;)Z"
+      }
+    }
+  }
+}

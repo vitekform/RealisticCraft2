@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "cz.vitekform.rc2.internal.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "FurnaceBurnTimeMixin",
+    "FurnaceFuelTimeMixin",
+    "PlayerInventoryClickMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -11,6 +11,9 @@ public class ModComponents {
     public static ComponentType<Double> TOTAL_BURNABLE_CHEMICAL_ENERGY_COMPONENT;
     public static ComponentType<Double> REQUIRED_ENERGY_FOR_REFINE_COMPONENT;
     public static ComponentType<Integer> CRAFT_PAD_USED_TIMES_COMPONENT;
+    public static ComponentType<Double> VOLTAGE_COMPONENT;
+    public static ComponentType<Double> AMPERAGE_COMPONENT;
+    public static ComponentType<Double> POWER_STORED_COMPONENT;
 
     public static void initialize() {
         TOTAL_ITEM_ENERGY_COMPONENT = Registry.register(
@@ -35,6 +38,24 @@ public class ModComponents {
                 Registries.DATA_COMPONENT_TYPE,
                 Identifier.of(Rc2.MOD_ID, "craft_pad_used_times"),
                 ComponentType.<Integer>builder().codec(Codec.INT).build()
+        );
+
+        VOLTAGE_COMPONENT = Registry.register(
+                Registries.DATA_COMPONENT_TYPE,
+                Identifier.of(Rc2.MOD_ID, "voltage"),
+                ComponentType.<Double>builder().codec(Codec.DOUBLE).build()
+        );
+
+        AMPERAGE_COMPONENT = Registry.register(
+                Registries.DATA_COMPONENT_TYPE,
+                Identifier.of(Rc2.MOD_ID, "amperage"),
+                ComponentType.<Double>builder().codec(Codec.DOUBLE).build()
+        );
+
+        POWER_STORED_COMPONENT = Registry.register(
+                Registries.DATA_COMPONENT_TYPE,
+                Identifier.of(Rc2.MOD_ID, "power_stored"),
+                ComponentType.<Double>builder().codec(Codec.DOUBLE).build()
         );
     }
 }

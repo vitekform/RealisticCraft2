@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "rc2",
+  "version": "1.0-SNAPSHOT",
+  "name": "rc2",
+  "description": "",
+  "authors": ["ganamaga"],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/rc2/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "cz.vitekform.rc2.client.Rc2Client"
+    ],
+    "main": [
+      "cz.vitekform.rc2.Rc2"
+    ],
+    "fabric-datagen": [
+      "cz.vitekform.rc2.client.datagen.RC2ReferenceDataGenerator"
+    ]
+  },
+  "mixins": [
+    "rc2.mixins.json",
+    {
+      "config": "rc2.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.10",
+    "fabric": "*",
+    "minecraft": "1.21.1"
+  }
+}
