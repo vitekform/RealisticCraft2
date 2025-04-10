@@ -1,0 +1,11 @@
+/give Player761 rc2:battery_dev
+/give Player761 rc2:cable_dev
+/give Player761 rc2:generator_dev
+/gamemode creative
+/give Player171 rc2:battery_dev
+/give Player596 rc2:cable_dev
+/give Player596 rc2:generator_dev
+/give Player231 rc2:generator_dev
+/give @s rc2:generator_dev
+/give @s rc2:battery_dev
+/give @s rc2:cable_dev

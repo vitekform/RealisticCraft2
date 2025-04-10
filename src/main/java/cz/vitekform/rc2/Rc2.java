@@ -18,5 +18,6 @@ public class Rc2 implements ModInitializer {
         rockSharpening.init();
         craftingPad.init();
         CP_ScreenHandlers.registerScreenHandlers();
+        ModBlockEntities.registerAllBlockEntities();
     }
 }
