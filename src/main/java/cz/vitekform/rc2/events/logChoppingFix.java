@@ -22,7 +22,7 @@ public class logChoppingFix {
     public static void init() {
         PlayerBlockBreakEvents.BEFORE.register((world, player, blockPos, blockState, blockEntity) -> {
             if (blockState.getBlock().getTranslationKey().contains("log") && !(blockState.getBlock().getTranslationKey().contains("stripped"))) {
-                if (player.getStackInHand(player.getActiveHand()).getItem().getTranslationKey().contains("axe")) {
+                if (player.getStackInHand(player.getActiveHand()).getItem().getTranslationKey().contains("axe") || player.getStackInHand(player.getActiveHand()).getItem() == ModItems.SHARP_ROCK_ITEM.asItem()) {
                     String blockName = blockState.getBlock().getTranslationKey();
                     String[] parts = blockName.split("\\.");
                     String strippedBlockName = "";
@@ -43,6 +43,9 @@ public class logChoppingFix {
                     player.getStackInHand(player.getActiveHand()).damage(1, player, LivingEntity.getSlotForHand(player.getActiveHand()));
                     // Drop bark
                     world.spawnEntity(new ItemEntity(world, blockPos.getX(), blockPos.getY() + 0.5, blockPos.getZ(), ModItems.WOOD_BARK.getDefaultStack()));
+                    if (player.getStackInHand(player.getActiveHand()).getItem() == ModItems.SHARP_ROCK_ITEM.asItem()) {
+                        player.getStackInHand(player.getActiveHand()).decrement(1);
+                    }
                     return false;
                 }
                 else {

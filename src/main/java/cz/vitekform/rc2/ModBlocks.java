@@ -1,8 +1,8 @@
 package cz.vitekform.rc2;
 
-import cz.vitekform.rc2.blocks.blocks.BatteryBlock;
-import cz.vitekform.rc2.blocks.blocks.CableBlock;
-import cz.vitekform.rc2.blocks.blocks.GeneratorBlock;
+import cz.vitekform.rc2.energy.blocks.blocks.BatteryBlock;
+import cz.vitekform.rc2.energy.blocks.blocks.CableBlock;
+import cz.vitekform.rc2.energy.blocks.blocks.GeneratorBlock;
 import cz.vitekform.rc2.internal.blocks.CraftingPadBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;

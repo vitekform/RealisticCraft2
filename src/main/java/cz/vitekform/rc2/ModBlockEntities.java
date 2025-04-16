@@ -1,8 +1,8 @@
 package cz.vitekform.rc2;
 
-import cz.vitekform.rc2.blocks.blockentities.BatteryBlockEntity;
-import cz.vitekform.rc2.blocks.blockentities.CableBlockEntity;
-import cz.vitekform.rc2.blocks.blockentities.GeneratorBlockEntity;
+import cz.vitekform.rc2.energy.blocks.blockentities.BatteryBlockEntity;
+import cz.vitekform.rc2.energy.blocks.blockentities.CableBlockEntity;
+import cz.vitekform.rc2.energy.blocks.blockentities.GeneratorBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;

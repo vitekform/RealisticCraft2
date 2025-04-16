@@ -9,3 +9,8 @@
 /give @s rc2:generator_dev
 /give @s rc2:battery_dev
 /give @s rc2:cable_dev
+/give @s rc2:battery_dev
+/give @s rc2:crafting_pad
+/give Player897 oak_log 64
+/give @s rc2:crafting_pad 3
+/give @s rc2:rock 64
