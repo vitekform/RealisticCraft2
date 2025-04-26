@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "realisticcraft",
+  "version": "${version}",
+  "name": "RealisticCraft",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/realisticcraft/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "cz.vitekform.realisticcraft.client.RealisticcraftDataGenerator"
+    ],
+    "client": [
+      "cz.vitekform.realisticcraft.client.RealisticcraftClient"
+    ],
+    "main": [
+      "cz.vitekform.realisticcraft.Realisticcraft"
+    ]
+  },
+  "mixins": [
+    "realisticcraft.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
